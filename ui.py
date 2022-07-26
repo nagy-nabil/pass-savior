@@ -10,7 +10,7 @@ from os import path
 from files import Files
 import webbrowser
 class UI(QMainWindow):
-    __data=None
+    __data={}
     __dataWidgets={}
     def __init__(self):
         super(UI,self).__init__()
@@ -261,7 +261,7 @@ class UI(QMainWindow):
         text=self.search.text().strip().lower()
         # print(text)
         if text:
-            if(text in self.__data):
+            if(self.__data and text in self.__data):
                 self.addData(text)
             else:
                 self.__MainPageSetup()
