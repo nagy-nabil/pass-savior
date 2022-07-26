@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>829</width>
+    <height>819</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>750</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Consolas</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	background-color: black;
+	color:#F1F1F1;
+	margin:0;
+	padding:0;
+}
+* QRadioButton{
+	font-family:&quot;Consolas&quot;;
+	font-size:20px;
+}
+
+QScrollBar:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    height: 15px;
+    margin: 0px 20px 0 20px;
+}
+QScrollBar::handle:horizontal {
+    background: white;
+    min-width: 20px;
+}
+QScrollBar::add-line:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+
+
+
+ QScrollBar:vertical {
+     border: 2px solid grey;
+     background: #282828;
+     width: 15px;
+     margin: 22px 0 22px 0;
+ }
+ QScrollBar::handle:vertical {
+     background: #636363;
+     min-height: 20px;
+ }
+ QScrollBar::add-line:vertical {
+     border: 2px solid grey;
+     background: #282828;
+     height: 20px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+
+ QScrollBar::sub-line:vertical {
+     border: 2px solid grey;
+     background: #282828;
+     height: 20px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     border: 2px solid grey;
+     width: 3px;
+     height: 3px;
+     background: white;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
+
+</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,0,0">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <item row="2" column="3" colspan="3">
+     <widget class="QScrollArea" name="values">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>4</horstretch>
+        <verstretch>6</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>411</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>2</width>
+        <height>2</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>1</width>
+        <height>1</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QScrollArea *{
+	font-family:consolas;
+	font-size:16px;
+	padding:2px;
+}
+QScrollArea #field{
+	min-width:120px;
+	min-height:50px;
+	max-width:120px;
+	max-height:50px;
+	border-bottom: 1px solid white;
+}
+QScrollArea QLineEdit#value {
+	min-width:260px;
+	min-height:50px;
+	max-width:500px;
+	max-height:50px;
+border-bottom: 1px solid red;
+}
+QScrollArea QLineEdit#value:focus{
+	background-color:white;
+	color:black;
+}
+QScrollArea #save:hover , QScrollArea #add_field:hover{
+	background-color:white;
+}
+QScrollArea #save , QScrollArea #add_field{
+	max-width:75px;
+	max-height:40px;
+}
+QScrollArea #mainPageGIF,QScrollArea #mainPageGIF #GIF{
+	width:100%;
+	height:100%;
+}
+
+QScrollBar:vertical {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 15px;
+    margin: 20px 0px 20px 0px;
+}
+QScrollBar::handle:vertical {
+    background: white;
+    min-width: 20px;
+}
+QScrollBar::add-line:vertical {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+QScrollArea#values {
+                            background-image: url(&quot;./icons/facebook-logo.png&quot;); 
+                            background-repeat: no-repeat; 
+                            background-position: center;
+                        }
+QScrollBar::sub-line:vertical {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="values_area">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>495</width>
+         <height>694</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="values_form">
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="editBtn">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>1</width>
+        <height>1</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover{
+	background-color: rgb(224, 0, 0);
+}
+QPushButton#editBtn:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/edit.png</normaloff>icons/edit.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="search">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>230</width>
+          <height>38</height>
+         </size>
+        </property>
+        <property name="sizeIncrement">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#search{
+padding:10px;
+background-color:black;
+color:#F1F1F1;
+}
+
+#search:focus{
+	background-color:white;
+	color:black;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+        <property name="placeholderText">
+         <string>Search</string>
+        </property>
+        <property name="cursorMoveStyle">
+         <enum>Qt::LogicalMoveStyle</enum>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="searchBtn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>75</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#searchBtn{
+	
+	background-color:black;
+}
+#search:focus #searchBtn{
+	background-color:white;
+	
+}
+#searchBtn:hover{
+	background-color:red;
+}
+#searchBtn:pressed{
+	background-color:red;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>icons/search.png</normaloff>icons/search.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>50</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="shortcut">
+         <string/>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="app_name">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>1</width>
+        <height>1</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>36</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Facebook</string>
+      </property>
+      <property name="margin">
+       <number>10</number>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="deleteBtn">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover{
+	background-color: rgb(224, 0, 0);
+}
+QPushButton#editBtn:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/delete.png</normaloff>icons/delete.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="shortcut">
+       <string>Del</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QScrollArea" name="saved">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>326</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>326</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ActionsContextMenu</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QScrollArea QRadioButton:pressed {
+   color:white;
+    border-style: inset;
+	background-color:black;
+}
+QScrollArea QRadioButton:hover,QScrollArea QRadioButton:checked {
+    color:white;
+    border-style: inset;	
+	background-color:black;
+}
+QScrollArea *{
+	background-color:#282828;
+	margin-top:20px;
+}
+QScrollArea{
+	height:100%;
+	background-color:#282828;
+}
+QScrollArea QRadioButton{
+	min-width:305px;
+	min-height:50ox;	
+	max-width:305px;
+	padding:10px;
+}
+ QScrollArea QLineEdit#newAppName{
+	padding:10px;
+	background-color:black;
+	color:#F1F1F1;
+	font-family:Consolas;
+	font-size:17px;
+	min-width:230px;
+	min-height:50ox;	
+	max-width:305px;
+}
+
+
+ QScrollArea QLineEdit#newAppName:focus{
+	background-color:white;
+	color:black;
+}
+QScrollArea #saveIcon{
+	
+	
+}
+
+QScrollArea #saveIcon:hover{
+	background-color:red;
+}
+QScrollArea #saveIcon:pressed{
+	background-color:red;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <widget class="QWidget" name="savedData">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>326</width>
+         <height>696</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>326</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>326</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::ActionsContextMenu</enum>
+       </property>
+       <layout class="QGridLayout" name="savedGrid" rowstretch="0" columnstretch="1">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetFixedSize</enum>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>829</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar QMenu {
+    background-color:#636363; /* sets background of the menu */
+    border: 1px solid black;
+}
+QMenuBar QMenu::item:selected{
+	background-color:#282828;
+}
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background: #a8a8a8;
+}</string>
+   </property>
+   <widget class="QMenu" name="menuFILE">
+    <property name="geometry">
+     <rect>
+      <x>437</x>
+      <y>175</y>
+      <width>200</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>200</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>FILE</string>
+    </property>
+    <addaction name="actionAddApp"/>
+    <addaction name="actionHome"/>
+    <addaction name="separator"/>
+    <addaction name="actionCLOSE"/>
+   </widget>
+   <widget class="QMenu" name="menuABOUT">
+    <property name="geometry">
+     <rect>
+      <x>474</x>
+      <y>175</y>
+      <width>200</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>200</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="title">
+     <string>ABOUT</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFILE"/>
+   <addaction name="menuABOUT"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizeGripEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionAddApp">
+   <property name="text">
+    <string>Add App</string>
+   </property>
+   <property name="toolTip">
+    <string>ctrl + N</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::ApplicationSpecificRole</enum>
+   </property>
+  </action>
+  <action name="actionCLOSE">
+   <property name="text">
+    <string>CLOSE</string>
+   </property>
+  </action>
+  <action name="actionHome">
+   <property name="text">
+    <string>Home</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
