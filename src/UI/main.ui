@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>829</width>
-    <height>819</height>
+    <height>817</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -114,7 +114,11 @@ QScrollBar::sub-line:horizontal {
      background: none;
  }
 
-</string>
+QToolTip { 
+                           background-color: black; 
+                           color: white; 
+                           border: black solid 1px
+                           }</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonTextUnderIcon</enum>
@@ -270,7 +274,7 @@ QScrollBar::sub-line:vertical {
          <x>0</x>
          <y>0</y>
          <width>495</width>
-         <height>694</height>
+         <height>692</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="values_form">
@@ -325,7 +329,7 @@ QPushButton#editBtn:pressed {
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/edit.png</normaloff>icons/edit.png</iconset>
+        <normaloff>../icons/edit.png</normaloff>../icons/edit.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -439,7 +443,7 @@ color:#F1F1F1;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>icons/search.png</normaloff>icons/search.png</iconset>
+          <normaloff>../icons/search.png</normaloff>../icons/search.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -511,6 +515,12 @@ color:#F1F1F1;
         <height>50</height>
        </size>
       </property>
+      <property name="toolTip">
+       <string notr="true">DEL =&gt; delete selected item</string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton:hover{
 	background-color: rgb(224, 0, 0);
@@ -525,7 +535,7 @@ QPushButton#editBtn:pressed {
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/delete.png</normaloff>icons/delete.png</iconset>
+        <normaloff>../icons/delete.png</normaloff>../icons/delete.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -645,7 +655,7 @@ QScrollArea #saveIcon:pressed{
          <x>0</x>
          <y>0</y>
          <width>326</width>
-         <height>696</height>
+         <height>694</height>
         </rect>
        </property>
        <property name="sizePolicy">

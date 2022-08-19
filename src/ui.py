@@ -10,12 +10,13 @@ from os import path
 from files import Files
 import webbrowser
 class UI(QMainWindow):
-    __data={}
-    __dataWidgets={}
+    
     def __init__(self):
         super(UI,self).__init__()
-        #load ui file
-        uic.loadUi("main.ui",self)
+        self.__data={}
+        self.__dataWidgets={}        
+        #load ui file [the path must be relative to the working dir not the py file]
+        uic.loadUi("src/UI/main.ui",self)
         #define widgets
         # self.logo=self.findChild(QLabel,"logo")
         self.search=self.findChild(QLineEdit,"search")
@@ -81,15 +82,15 @@ class UI(QMainWindow):
         self.newApp.clicked.connect(lambda: self.addData(name.lower()))
         self.savedGrid.addWidget(self.newApp,self.savedGrid.rowCount(),0,1,2)
         if(name in "Facebook" ):
-            self.icon=QIcon("icons/facebook-logo.png")
+            self.icon=QIcon("src/icons/facebook-logo.png")
         elif(name in 'Twitter' ):
-            self.icon=QIcon("icons/twitter-logo.png")
+            self.icon=QIcon("src/icons/twitter-logo.png")
         elif(name in 'Gmail' or name in "Google"):
-            self.icon=QIcon("icons/Gmail_icon.png")
+            self.icon=QIcon("src/icons/Gmail_icon.png")
         elif(name in "Riot Games" or name in "Valorant" or name == "Lol" or name =="League Of Leagends"):
-            self.icon=QIcon("icons/Riot-Games-logo.png")
+            self.icon=QIcon("src/icons/Riot-Games-logo.png")
         else:
-            self.icon=QIcon("icons/locked.png")
+            self.icon=QIcon("src/icons/locked.png")
         self.newApp.setIcon(self.icon)
         self.newApp.setIconSize(QSize(50,50))
     
@@ -102,7 +103,7 @@ class UI(QMainWindow):
         self.saveIcon=QPushButton(self.values)
         self.saveIcon.setObjectName("saveIcon")
         self.saveIcon.setFlat(True)
-        self.icon=QIcon("icons/add.png")
+        self.icon=QIcon("src/icons/add.png")
         self.saveIcon.setIcon(self.icon)
         self.saveIcon.setIconSize(QSize(50,50))
         self.savedGrid.addWidget(self.newAppName,self.savedGrid.rowCount(),0,1,1)
@@ -206,12 +207,12 @@ class UI(QMainWindow):
         #create save and  add field buttons
         self.save=QPushButton(self.values)
         self.save.setObjectName("save")
-        self.icon=QIcon("icons/save.png")
+        self.icon=QIcon("src/icons/save.png")
         self.save.setIcon(self.icon)
         self.save.setIconSize(QSize(50,50))
         self.add_field=QPushButton(self.values)
         self.add_field.setObjectName("add_field")
-        self.icon=QIcon("icons/add.png")
+        self.icon=QIcon("src/icons/add.png")
         self.add_field.setIcon(self.icon)
         self.add_field.setIconSize(QSize(50,50))
         self.save.setShortcut(QKeySequence('Ctrl+s'))

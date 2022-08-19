@@ -26,7 +26,7 @@ class Files():
                 return decrypted
             except:
                 print("no data to load")
-                return None
+                return {}
         else:
             Files.__load_key()
             return Files.load()
