@@ -32,7 +32,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>DATA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/locked.ico</normaloff>../icons/locked.ico</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>

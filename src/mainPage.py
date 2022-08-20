@@ -69,7 +69,7 @@ class UI(QMainWindow):
         elif(name in "Riot Games" or name in "Valorant" or name == "Lol" or name =="League Of Leagends"):
             self.icon=QIcon("src/icons/Riot-Games-logo.png")
         else:
-            self.icon=QIcon("src/icons/locked.png")
+            self.icon=QIcon("src/icons/locked.ico")
         self.newApp.setIcon(self.icon)
         self.newApp.setIconSize(QSize(50,50))
     
