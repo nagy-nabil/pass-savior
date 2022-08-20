@@ -1,12 +1,8 @@
-from posixpath import expanduser
 from sre_compile import isstring
-from PyQt5.QtWidgets import QMainWindow , QApplication, QComboBox, QLineEdit , QPushButton,QSpinBox, QCheckBox, QRadioButton, QProgressBar, QScrollArea, QFrame, QLabel,QFileDialog,QWidget,QGridLayout,QFormLayout,QDialog,QWidgetItem,QAction
-from PyQt5.QtGui import QMovie,QIcon,QKeySequence
+from PyQt5.QtWidgets import QMainWindow , QApplication, QLineEdit , QPushButton, QRadioButton, QScrollArea, QLabel,QWidget,QGridLayout,QFormLayout,QDialog,QWidgetItem,QAction
+from PyQt5.QtGui import QIcon,QKeySequence
 from PyQt5 import uic
-from pytube import request
-from PyQt5.QtCore import QObject, QThread, pyqtSignal,QSize, QMutex
-from PyQt5.QtGui import QMovie
-from os import path
+from PyQt5.QtCore import QSize
 from files import Files
 import webbrowser
 class UI(QMainWindow):
@@ -55,23 +51,6 @@ class UI(QMainWindow):
         # self.logo.setPixmap(self.logo_image)
         #show the app
         self.show()
-    def clicked(self):
-        print("fdgh")
-        self.dock=QDialog(self)
-        self.dock.setModal(True)
-        self.dock.adjustSize()
-        self.la=QLabel(self.dock)
-        self.line=QLineEdit(self.dock)
-        self.la.setText("hdfghdgf")
-        self.la.setGeometry(100, 200, 300, 80)
-        # self.dock.setFloating(True)
-        # self.dock.addWidget(self.la)
-        self.test=QGridLayout(self.dock)
-        self.test.addWidget(self.la)
-        self.test.addWidget(self.line)
-        self.dock.setLayout(self.test)
-        self.dock.setGeometry(100, 0, 200, 30)
-        self.dock.open()
     def addApp(self,name):
         name=name.title()
         # print(self.savedGrid.rowCount())

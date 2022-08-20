@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>829</width>
-    <height>817</height>
+    <height>750</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -274,7 +274,7 @@ QScrollBar::sub-line:vertical {
          <x>0</x>
          <y>0</y>
          <width>495</width>
-         <height>692</height>
+         <height>645</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="values_form">
@@ -655,7 +655,7 @@ QScrollArea #saveIcon:pressed{
          <x>0</x>
          <y>0</y>
          <width>326</width>
-         <height>694</height>
+         <height>647</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -769,8 +769,8 @@ QMenuBar::item:selected { /* when selected using mouse or keyboard */
    <widget class="QMenu" name="menuABOUT">
     <property name="geometry">
      <rect>
-      <x>474</x>
-      <y>175</y>
+      <x>343</x>
+      <y>170</y>
       <width>200</width>
       <height>68</height>
      </rect>
@@ -801,14 +801,12 @@ QMenuBar::item:selected { /* when selected using mouse or keyboard */
    <addaction name="menuFILE"/>
    <addaction name="menuABOUT"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="sizeGripEnabled">
-    <bool>true</bool>
-   </property>
-  </widget>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
    </property>
   </action>
   <action name="actionAddApp">

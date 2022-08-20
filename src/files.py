@@ -6,12 +6,14 @@ data form
     }
 }
 '''
+from operator import truediv
 from cryptography.fernet import Fernet
 import json
-
+from os.path import exists
 
 class Files():
     __name="data.json";
+    __userName="user.key"
     __keyFile="thekey.key"
     __KEY=None
 
@@ -88,6 +90,48 @@ class Files():
             print("no KEY so we generate new one")
             Files.__generate_key()
 
+    @classmethod
+    def store_user(cls,name,password):
+        user={
+            'name':name,
+            'password':password
+        }
+        encrypted= Files.__encrypt_data(user)
+        # print(encrypted)
+        if(encrypted):
+            with open(Files.__userName, "wb") as datafile:
+                datafile.write(encrypted)
+
+    @classmethod
+    def __load_user(cls):
+        if(Files.__KEY):
+            try:
+                with open(Files.__userName, 'rb') as datafile:
+                    encrypted=datafile.read()
+                    decrypted=Files.__decrypt_data(encrypted)
+                    return decrypted
+            except:
+                print("no data to load")
+                return {}
+        else:
+            Files.__load_key()
+            return Files.__load_user()
+    @classmethod
+    def isUserRight(cls,name,password):
+        try:
+            rightUser=Files.__load_user()
+            if(name==rightUser["name"] and password==rightUser["password"]):
+                return True;
+        except:
+            return False
+        return False
+    @classmethod
+    def userExists(cls):
+        if exists(Files.__userName):
+            return True;
+        else:
+            return False
+
 if __name__ == "__main__":
     data={
         "facebook": {
@@ -104,4 +148,5 @@ if __name__ == "__main__":
         }
         }
     print(Files.load())
+    Files.isUserRight("hdf","hgf")
     # Files.store(data)
