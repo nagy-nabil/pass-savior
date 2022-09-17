@@ -1,10 +1,13 @@
+from optparse import check_builtin
 from sre_compile import isstring
+from tabnanny import check
 from PyQt5.QtWidgets import QMainWindow , QApplication, QLineEdit , QPushButton, QRadioButton, QScrollArea, QLabel,QWidget,QGridLayout,QFormLayout,QDialog,QWidgetItem,QAction
 from PyQt5.QtGui import QIcon,QKeySequence
 from PyQt5 import uic
 from PyQt5.QtCore import QSize
 from files import Files
 import webbrowser
+import pyperclip
 class UI(QMainWindow):    
     def __init__(self):
         super(UI,self).__init__()
@@ -59,17 +62,19 @@ class UI(QMainWindow):
         self.newApp.clicked.connect(lambda: self.addData(name.lower()))
         self.savedGrid.addWidget(self.newApp,self.savedGrid.rowCount(),0,1,2)
         if(name in "Facebook" ):
-            self.icon=QIcon("src/icons/facebook-logo.png")
+            self.icon=QIcon("src/icons/facebook.png")
         elif(name in 'Twitter' ):
-            self.icon=QIcon("src/icons/twitter-logo.png")
+            self.icon=QIcon("src/icons/twitter.png")
         elif(name in 'Gmail' or name in "Google"):
             self.icon=QIcon("src/icons/Gmail_icon.png")
         elif(name in 'Github'):
             self.icon=QIcon("src/icons/github.png")
         elif(name in "Riot Games" or name in "Valorant" or name == "Lol" or name =="League Of Leagends"):
-            self.icon=QIcon("src/icons/Riot-Games-logo.png")
+            self.icon=QIcon("src/icons/Riot-Games.png")
+        elif(name == 'Discord'):
+            self.icon=QIcon("src/icons/discord.png")
         else:
-            self.icon=QIcon("src/icons/locked.ico")
+            self.icon=QIcon("src/icons/lock.png")
         self.newApp.setIcon(self.icon)
         self.newApp.setIconSize(QSize(50,50))
     
@@ -112,6 +117,21 @@ class UI(QMainWindow):
         for i in range(0,count):
             self.values_form.removeRow(0)
         self.__dataWidgets.clear()
+    #define how to toogle between password and Normal view for line edit with its action
+    def showHideLogic(self, action:QAction, lineEdit:QLineEdit):
+        checkflag = action.isCheckable()
+        if not checkflag:
+            action.setCheckable(True)
+        # * toggle between echo mode in trigger
+        action.triggered.connect(lambda : lineEdit.setEchoMode(QLineEdit.Normal) if lineEdit.echoMode() == QLineEdit.Password else lineEdit.setEchoMode(QLineEdit.Password) )
+        action.setToolTip('show content')
+    #define logic behind copying line edit content to the system clipboard
+    def copyLogic(self,action:QAction,lineEdit:QLineEdit):
+        action.setToolTip('copy content')
+        checkFlag = action.isCheckable()
+        if not check_builtin:
+            action.setCheckable(True)
+        action.triggered.connect(lambda: pyperclip.copy(lineEdit.text()))
     #take dict and create field value ui pair of it
     def addData(self,appName):
         # self.deleteBtn.clicked.connect(lambda:self.__deleteFromSavedUI(row))
@@ -130,11 +150,21 @@ class UI(QMainWindow):
             self.value.setObjectName("value")
             self.value.setText(f"{v}")
             self.value.setReadOnly(True)
+            # default to have all line edit like password then toggle the view by QAction
+            self.value.setEchoMode(QLineEdit.Password)
             # self.value.setClearButtonEnabled(True)
             self.value.setFrame(False)
+            # add show/hide ICON , ACTION, then add it to the line edit
+            showHideIcon = QIcon("src/icons/hide.png")
+            showHideAction = self.value.addAction(showHideIcon,QLineEdit.TrailingPosition)
+            self.showHideLogic(showHideAction,self.value)
+            # add copy action , icon
+            copyIcon = QIcon('src/icons/copy.png')
+            copyAction = self.value.addAction(copyIcon,QLineEdit.TrailingPosition)
+            self.copyLogic(copyAction,self.value)
+            # add field value to the form layout
             self.values_form.addRow(self.field,self.value)
             self.__dataWidgets[k]=self.value
-        # print(self.__dataWidgets)
     
     def __MainPageSetup(self):
         self.app_name.setText("HEY BOSS.")

@@ -32,11 +32,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>DATA</string>
+   <string>PASSWORD-SAVER</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../icons/locked.ico</normaloff>../icons/locked.ico</iconset>
+    <normaloff>../icons/lock.ico</normaloff>../icons/lock.ico</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -239,7 +239,6 @@ QScrollBar::add-line:vertical {
     subcontrol-origin: margin;
 }
 QScrollArea#values {
-                            background-image: url(&quot;./icons/facebook-logo.png&quot;); 
                             background-repeat: no-repeat; 
                             background-position: center;
                         }
