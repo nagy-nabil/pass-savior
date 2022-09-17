@@ -44,6 +44,18 @@
    <iconset>
     <normaloff>../icons/locked.ico</normaloff>../icons/locked.ico</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+	background-color:black;
+	color:white;
+}
+QLabel {
+	border-bottom: 1px solid white;
+}
+QLineEdit {
+	border-bottom: 1px solid red;
+}</string>
+  </property>
   <widget class="QLabel" name="logo">
    <property name="geometry">
     <rect>
@@ -64,6 +76,11 @@
      <width>50</width>
      <height>100</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#logo {
+	border :None;
+}</string>
    </property>
    <property name="text">
     <string/>
@@ -102,8 +119,8 @@
     <rect>
      <x>200</x>
      <y>110</y>
-     <width>81</width>
-     <height>21</height>
+     <width>91</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -128,8 +145,17 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
    <property name="focusPolicy">
     <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -137,9 +163,15 @@
     <rect>
      <x>200</x>
      <y>160</y>
-     <width>101</width>
+     <width>91</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>password</string>
@@ -153,6 +185,15 @@
      <width>181</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -170,14 +211,40 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#logBtn {
+	border: 2px solid green;
+}
+QPushButton#logBtn:hover {
+	background-color:green;
+}</string>
    </property>
    <property name="text">
     <string>Log In</string>
    </property>
    <property name="shortcut">
     <string>Return</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="baddata">
@@ -195,7 +262,16 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
          <green>0</green>
          <blue>0</blue>
         </color>
@@ -204,7 +280,34 @@
       <colorrole role="Text">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
          <green>0</green>
          <blue>0</blue>
         </color>
@@ -224,7 +327,16 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
          <green>0</green>
          <blue>0</blue>
         </color>
@@ -233,7 +345,34 @@
       <colorrole role="Text">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
          <green>0</green>
          <blue>0</blue>
         </color>
@@ -253,18 +392,54 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>120</red>
-         <green>120</green>
-         <blue>120</blue>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Text">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>120</red>
-         <green>120</green>
-         <blue>120</blue>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -287,6 +462,11 @@
    </property>
    <property name="cursor">
     <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#baddata {
+	color:red;
+}</string>
    </property>
    <property name="text">
     <string>Wrong Username or Password</string>

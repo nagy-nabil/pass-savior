@@ -5,8 +5,7 @@ from PyQt5 import uic
 from PyQt5.QtCore import QSize
 from files import Files
 import webbrowser
-class UI(QMainWindow):
-    
+class UI(QMainWindow):    
     def __init__(self):
         super(UI,self).__init__()
         self.__data={}
@@ -35,7 +34,6 @@ class UI(QMainWindow):
         self.editBtn.clicked.connect(lambda :self.editLogic())
         self.searchBtn.clicked.connect(lambda:self.__searchLogic())
         self.deleteBtn.clicked.connect(self.__deleteLogic)
-        self.searchBtn.setShortcut(QKeySequence('Return'))
         self.actionAddApp.triggered.connect(self.createApp)
         self.actionHome.triggered.connect(self.__MainPageSetup)
         self.actionCLOSE.triggered.connect(self.close)
@@ -66,6 +64,8 @@ class UI(QMainWindow):
             self.icon=QIcon("src/icons/twitter-logo.png")
         elif(name in 'Gmail' or name in "Google"):
             self.icon=QIcon("src/icons/Gmail_icon.png")
+        elif(name in 'Github'):
+            self.icon=QIcon("src/icons/github.png")
         elif(name in "Riot Games" or name in "Valorant" or name == "Lol" or name =="League Of Leagends"):
             self.icon=QIcon("src/icons/Riot-Games-logo.png")
         else:
@@ -85,6 +85,7 @@ class UI(QMainWindow):
         self.icon=QIcon("src/icons/add.png")
         self.saveIcon.setIcon(self.icon)
         self.saveIcon.setIconSize(QSize(50,50))
+        self.saveIcon.setShortcut(QKeySequence('Return'))
         self.savedGrid.addWidget(self.newAppName,self.savedGrid.rowCount(),0,1,1)
         self.savedGrid.addWidget(self.saveIcon,self.savedGrid.rowCount()-1,1,1,1)
         self.saveIcon.clicked.connect(self.saveNewApp)
@@ -140,12 +141,6 @@ class UI(QMainWindow):
         self.__clearForm()
         self.deleteBtn.setEnabled(False)
         self.editBtn.setEnabled(False)
-        # self.GIF=QMovie("icons/better-call-saul-loop.gif")
-        # self.GIF.setObjectName("GIF")
-        # # self.GIF.setScaledSize(QSize(self.values.width(),self.values.height()))
-        # # self.GIF.setSize(self.)
-        # self.mainPageGIF.setMovie(self.GIF)
-        # self.GIF.start()
     #load the data when the app start and add the data to the ui
     def setupUI(self):
         self.__MainPageSetup()
@@ -157,20 +152,7 @@ class UI(QMainWindow):
                 self.addApp(itm)
     # pos=2
     def __clearSaved(self):
-        # print(self.savedGrid.getItemPosition(1))
-        # print(self.savedGrid.rowCount())
-        # rows=self.savedGrid.rowCount()-1
-        # for i in range(rows,0,-1):
-        #     self.__deleteFromSavedUI(i)
-        # print(self.savedGrid.rowCount())
-        # pos=self.savedGrid.getItemPosition(0)[0]
         rCount=self.savedGrid.rowCount()
-        # widget=self.savedGrid.itemAtPosition(0,0)
-        # while(isinstance(widget,QWidgetItem)):
-        #     widget=widget.widget()
-        #     widget.deleteLater()
-        #     pos+=1
-        #     widget=self.savedGrid.itemAtPosition(pos,0)
         for i in range(0,rCount):
             widget=self.savedGrid.itemAtPosition(i,0)
             if(isinstance(widget,QWidgetItem)):
@@ -189,13 +171,16 @@ class UI(QMainWindow):
         self.icon=QIcon("src/icons/save.png")
         self.save.setIcon(self.icon)
         self.save.setIconSize(QSize(50,50))
+        
         self.add_field=QPushButton(self.values)
         self.add_field.setObjectName("add_field")
         self.icon=QIcon("src/icons/add.png")
         self.add_field.setIcon(self.icon)
         self.add_field.setIconSize(QSize(50,50))
         self.save.setShortcut(QKeySequence('Ctrl+s'))
+        self.save.setToolTip("CTRL + S =>Save Current Data")
         self.add_field.setShortcut(QKeySequence('Ctrl+a'))
+        self.add_field.setToolTip("CTRL + A =>Add New Field")
         self.save.clicked.connect(self.__saveData)
         self.add_field.clicked.connect(self.__new_field)
         self.values_form.addRow(self.save, self.add_field)

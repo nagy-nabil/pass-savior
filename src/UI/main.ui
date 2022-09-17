@@ -318,6 +318,9 @@ QScrollBar::sub-line:vertical {
         <pointsize>14</pointsize>
        </font>
       </property>
+      <property name="toolTip">
+       <string>Edit Aelected App</string>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton:hover{
 	background-color: rgb(224, 0, 0);
@@ -425,6 +428,9 @@ color:#F1F1F1;
           <width>75</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Search</string>
         </property>
         <property name="styleSheet">
          <string notr="true">#searchBtn{
@@ -615,6 +621,7 @@ QScrollArea QRadioButton{
 	min-width:230px;
 	min-height:50ox;	
 	max-width:305px;
+	margin-left:15px;
 }
 
 
